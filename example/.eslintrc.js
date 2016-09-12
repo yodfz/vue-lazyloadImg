@@ -12,6 +12,12 @@ module.exports = {
   ],
   // add your custom rules here
   'rules': {
+    'semi': [2, "always"],
+    // allow debugger during development
+    "no-spaced-func": 2,
+    "arrow-spacing": 0,
+    "space-before-function-paren": [0, "always"],//函数定义时括号前面要不要有空格
+    "indent": [2, 4],
     // allow paren-less arrow functions
     'arrow-parens': 0,
     // allow async-await

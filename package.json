@@ -1,9 +1,10 @@
 {
   "name": "vue-lazyloadimg",
-  "version": "1.0.2",
+  "version": "1.0.6",
   "description": "vue lazy load img components",
   "main": "dist/vue-lazyloadimg.js",
   "scripts": {
+    "build": "node build/build.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +21,7 @@
   "license": "MIT",
   "dependencies": {
     "babel-plugin-transform-runtime": "^6.15.0",
+    "fs": "0.0.1-security",
     "webpack": "^1.13.2"
   },
   "devDependencies": {

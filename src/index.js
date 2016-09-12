@@ -1,35 +1,43 @@
 import createCSS from './fn/createCss.js';
-let $imgs = [],
-    $length = [],
-    $oldload,
-    $load = [],
-    $layzImgTimeout,
-    $layzImgLoadTimeout, t,
+let _win = window === undefined ? null : window;
+let $imgs = [];
+let $length = [];
+let $oldload;
+let $load = [];
+let $layzImgTimeout;
+let $layzImgLoadTimeout;
+let t;
+let $winHeight = _win ? _win.innerHeight : 0;
+let lazyImg = function () {
+    $imgs = document.querySelectorAll('.lazyImg');
+    $length = $imgs.length;
     $winHeight = window.innerHeight;
+};
 
 let lazyImgScroll = function () {
+    console.log('lazy img scroll');
     t = document.documentElement.scrollTop || (document.body != null ? document.body.scrollTop : 0);
     clearTimeout($layzImgTimeout);
     t += $winHeight;
     $layzImgTimeout = setTimeout(function () {
         for (var i = 0; i < $length; i++) {
             var $top;
-            if ($imgs[i].dataset.top == undefined) {
+            if ($imgs[i].dataset.top === undefined) {
                 $top = $imgs[i].offsetTop;
                 var $p = $imgs[i].offsetParent;
-                while ($p && $p.tagName != "BODY") {
+                while ($p && $p.tagName !== 'BODY') {
                     $top += $p.offsetTop;
                     $p = $p.offsetParent;
                 }
                 $imgs[i].dataset.top = $top;
             }
             $top = $imgs[i].dataset.top;
-            //优化点2 考虑记录已经加载的图片INDEX 然后删除它
+            // 优化点2 考虑记录已经加载的图片INDEX 然后删除它
             if ($top >= (t - $winHeight * 1) && $top <= t && !$imgs[i].dataset.isload) {
                 $imgs[i].src = $imgs[i].dataset.src;
                 $imgs[i].dataset.isload = true;
                 $imgs[i].onload = function () {
-                    this.style.opacity = "1.0";
+                    this.style.opacity = '1.0';
                     this.onload = null;
                 };
             }
@@ -41,9 +49,10 @@ let init = () => {
     createCSS();
 };
 
-export default {
+let fn = {
     install (vue, optons) {
         init();
+        console.log('安装插件');
         // 查看是否支持监听DOM变动 MutationObserver
         var MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
         $oldload = window.onload;
@@ -58,18 +67,18 @@ export default {
                 });
                 observer.observe(document, {
                     subtree: true,
-                    //attributes: true,
+                    // attributes: true,
                     childList: true
-                    //characterData: true
+                    // characterData: true
                 });
             });
         } else {
-            // 退化选择
-            //（1）DOMSubtreeModified：在DOM结构中发生的任何变化时触发。这个事件在其他任何事件触发后都会触发。
+            //  退化选择
+            // （1）DOMSubtreeModified：在DOM结构中发生的任何变化时触发。这个事件在其他任何事件触发后都会触发。
             //
-            //（2）DOMNodeInserted：在一个节点作为子节点被插入到另一个节点中时触发。
+            // （2）DOMNodeInserted：在一个节点作为子节点被插入到另一个节点中时触发。
             //
-            //（3）DOMNodeRemoved：在节点从其父节点中被移除时触发。
+            // （3）DOMNodeRemoved：在节点从其父节点中被移除时触发。
             $load.push(function () {
                 document.body.addEventListener('DOMSubtreeModified', function () {
                     $layzImgLoadTimeout = setTimeout(function () {
@@ -92,3 +101,5 @@ export default {
         window.onscroll();
     }
 };
+
+export default fn;
