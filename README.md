@@ -1,6 +1,6 @@
 # How do use?
 ## [中文](README.CN.md)
-
+![效果展示](http://ww3.sinaimg.cn/large/882a72d0gw1f7qycyxootg20i70hd7wh.gif)
 ## step 1 install
 ```javascript
 npm install --save vue-lazyloadimg

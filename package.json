@@ -1,7 +1,7 @@
 {
   "name": "vue-lazyloadimg",
-  "version": "1.0.6",
-  "description": "vue lazy load img components",
+  "version": "1.0.7",
+  "description": "vue lazy load image components",
   "main": "dist/vue-lazyloadimg.js",
   "scripts": {
     "build": "node build/build.js",

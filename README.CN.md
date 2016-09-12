@@ -1,5 +1,5 @@
 # 如何使用?
-
+![效果展示](http://ww3.sinaimg.cn/large/882a72d0gw1f7qycyxootg20i70hd7wh.gif)
 ## 安装插件
 ```javascript
 npm install --save vue-lazyloadimg
