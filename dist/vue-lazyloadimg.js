@@ -42,19 +42,30 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	import createCSS from './fn/createCss.js';
-	let $imgs = [],
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createCss = __webpack_require__(1);
+
+	var _createCss2 = _interopRequireDefault(_createCss);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var $imgs = [],
 	    $length = [],
-	    $oldload,
+	    $oldload = void 0,
 	    $load = [],
-	    $layzImgTimeout,
-	    $layzImgLoadTimeout,
-	    t,
+	    $layzImgTimeout = void 0,
+	    $layzImgLoadTimeout = void 0,
+	    t = void 0,
 	    $winHeight = window.innerHeight;
 
-	let lazyImgScroll = function () {
+	var lazyImgScroll = function lazyImgScroll() {
 	    t = document.documentElement.scrollTop || (document.body != null ? document.body.scrollTop : 0);
 	    clearTimeout($layzImgTimeout);
 	    t += $winHeight;
@@ -71,7 +82,7 @@
 	                $imgs[i].dataset.top = $top;
 	            }
 	            $top = $imgs[i].dataset.top;
-	            //优化点2 考虑记录已经加载的图片INDEX 然后删除它
+
 	            if ($top >= t - $winHeight * 1 && $top <= t && !$imgs[i].dataset.isload) {
 	                $imgs[i].src = $imgs[i].dataset.src;
 	                $imgs[i].dataset.isload = true;
@@ -84,14 +95,14 @@
 	    }, 50);
 	};
 
-	let init = () => {
-	    createCSS();
+	var init = function init() {
+	    (0, _createCss2.default)();
 	};
 
-	export default {
-	    install(vue, optons) {
+	exports.default = {
+	    install: function install(vue, optons) {
 	        init();
-	        // 查看是否支持监听DOM变动 MutationObserver
+
 	        var MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
 	        $oldload = window.onload;
 	        if (MutationObserver != null) {
@@ -105,18 +116,11 @@
 	                });
 	                observer.observe(document, {
 	                    subtree: true,
-	                    //attributes: true,
+
 	                    childList: true
-	                    //characterData: true
 	                });
 	            });
 	        } else {
-	            // 退化选择
-	            //（1）DOMSubtreeModified：在DOM结构中发生的任何变化时触发。这个事件在其他任何事件触发后都会触发。
-	            //
-	            //（2）DOMNodeInserted：在一个节点作为子节点被插入到另一个节点中时触发。
-	            //
-	            //（3）DOMNodeRemoved：在节点从其父节点中被移除时触发。
 	            $load.push(function () {
 	                document.body.addEventListener('DOMSubtreeModified', function () {
 	                    $layzImgLoadTimeout = setTimeout(function () {
@@ -138,6 +142,22 @@
 	        };
 	        window.onscroll();
 	    }
+	};
+
+/***/ },
+/* 1 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	exports.default = function () {
+	    var createCss = document.createElement('style');
+	    createCss.innerHTML = '.lazyImg{opacity: 0;\n        transform: translateZ(0);\n        -webkit-transition-duration: .5s;\n        -moz-transition-duration: .5s;\n        -o-transition-duration: .5s;\n        transition-duration: .5s;\n    }';
+	    document.body.appendChild(createCss);
 	};
 
 /***/ }

@@ -14,9 +14,7 @@ module.exports = {
         //加载器配置
         loaders: [
             {
-                test: /\.js$/,
-                loader: 'babel-loader',
-                exclude: /node_modules/
+                test: /\.js$/, exclude: /node_modules/, loader: "babel-loader"
             }
         ],
         resolve: {
