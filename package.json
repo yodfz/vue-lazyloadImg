@@ -1,0 +1,17 @@
+{
+  "name": "vue-lazyimg",
+  "version": "1.0.0",
+  "description": "vue lazy load img components",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vue",
+    "lazy",
+    "load",
+    "img"
+  ],
+  "author": "yodfz",
+  "license": "MIT"
+}
