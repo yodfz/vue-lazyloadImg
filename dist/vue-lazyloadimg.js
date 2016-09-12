@@ -44,7 +44,7 @@
 /* 0 */
 /***/ function(module, exports) {
 
-	import createCSS from './fn/createCss';
+	import createCSS from './fn/createCss.js';
 	let $imgs = [],
 	    $length = [],
 	    $oldload,
