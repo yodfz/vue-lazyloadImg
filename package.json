@@ -1,10 +1,14 @@
 {
-  "name": "vue-lazyimg",
-  "version": "1.0.0",
+  "name": "vue-lazyloadimg",
+  "version": "1.0.1",
   "description": "vue lazy load img components",
-  "main": "src/index.js",
+  "main": "dist/vue-lazyloadimg.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yodfz/vue-lazyImg.git"
   },
   "keywords": [
     "vue",
@@ -13,5 +17,12 @@
     "img"
   ],
   "author": "yodfz",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "webpack": "^1.13.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5"
+  }
 }
