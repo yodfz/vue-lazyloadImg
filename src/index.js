@@ -52,6 +52,9 @@ let init = () => {
 let fn = {
     install (vue, optons) {
         init();
+        let _opt = {
+            timeout: options.timeout || 200
+        };
         console.log('安装插件');
         // 查看是否支持监听DOM变动 MutationObserver
         var MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
@@ -84,7 +87,7 @@ let fn = {
                     $layzImgLoadTimeout = setTimeout(function () {
                         lazyImg();
                         window.onscroll();
-                    }, 200);
+                    }, _opt.timeout);
                 }, false);
             });
         }

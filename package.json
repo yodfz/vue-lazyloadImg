@@ -5,6 +5,7 @@
   "main": "dist/vue-lazyloadimg.js",
   "scripts": {
     "build": "node build/build.js",
+    "babelbuild": "babel script.js --out-file script-compiled.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
