@@ -50,7 +50,7 @@ let init = () => {
 };
 
 let fn = {
-    install (vue, optons) {
+    install (vue, options) {
         init();
         let _opt = {
             timeout: options.timeout || 200
