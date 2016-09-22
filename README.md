@@ -1,3 +1,8 @@
+[![npm version](https://badge.fury.io/js/websocket.svg)](http://badge.fury.io/js/websocket)
+[![NPM Downloads](https://img.shields.io/npm/dm/websocket.svg)](https://www.npmjs.com/package/websocket)
+[![NPM](https://nodei.co/npm/websocket.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/websocket/)
+[![NPM](https://nodei.co/npm-dl/websocket.png?height=3)](https://nodei.co/npm/websocket/)
+
 # How do use?
 ## [中文](README.CN.md)
 ![效果展示](http://ww3.sinaimg.cn/large/882a72d0gw1f7qycyxootg20i70hd7wh.gif)
