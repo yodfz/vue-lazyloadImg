@@ -1,7 +1,7 @@
-[![npm version](https://badge.fury.io/js/websocket.svg)](http://badge.fury.io/js/websocket)
-[![NPM Downloads](https://img.shields.io/npm/dm/websocket.svg)](https://www.npmjs.com/package/websocket)
-[![NPM](https://nodei.co/npm/websocket.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/websocket/)
-[![NPM](https://nodei.co/npm-dl/websocket.png?height=3)](https://nodei.co/npm/websocket/)
+[![npm version](https://badge.fury.io/js/vue-lazyloadimg.svg)](http://badge.fury.io/js/vue-lazyloadimg)
+[![NPM Downloads](https://img.shields.io/npm/dm/vue-lazyloadimg.svg)](https://www.npmjs.com/package/vue-lazyloadimg)
+[![NPM](https://nodei.co/npm/vue-lazyloadimg.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/vue-lazyloadimg/)
+[![NPM](https://nodei.co/npm-dl/vue-lazyloadimg.png?height=3)](https://nodei.co/npm/vue-lazyloadimg/)
 
 # How do use?
 ## [中文](README.CN.md)
